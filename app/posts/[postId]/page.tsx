@@ -16,15 +16,15 @@ const page = async ({ params }: { params: { postId: number } }) => {
 
   //SSG
   // const url = `https://jsonplaceholder.typicode.com/posts/${params.postId}`;
-  // const res = await fetch(url)
+  // const res = await fetch(url);
   // const jsonres: Promise<Post> = res.json();
   // const data: Post = await jsonres;
 
   // // ISR
   // const url = `https://jsonplaceholder.typicode.com/posts/${params.postId}`;
   // const res = await fetch(url, {
-  //   next: {revalidate: 10}
-  // })
+  //   next: { revalidate: 10 },
+  // });
   // const jsonres: Promise<Post> = res.json();
   // const data: Post = await jsonres;
 
