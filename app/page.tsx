@@ -1,3 +1,4 @@
+import Feed from "@components/Feed";
 const Home = () => {
   return (
     <section className="w-full flex-center flex-col">
@@ -12,7 +13,7 @@ const Home = () => {
         temporibus deserunt tempora vero iusto sunt dolorem suscipit hic
         voluptatem quidem laborum consequuntur accusantium.
       </p>
-      {/* feed */}
+      <Feed />
     </section>
   );
 };
