@@ -1,5 +1,7 @@
-import { Children, ReactNode } from "react";
+import { ReactNode } from "react";
 import "@style/globals.css";
+import Nav from "@components/Nav";
+import Provider from "@components/Provider";
 
 export const metadata = {
   title: "Speac Explor",
@@ -13,7 +15,10 @@ const Rootlayout = ({ children }: { children: ReactNode }) => {
         <div className="main">
           <div className="gradient"></div>
         </div>
-        <main className="app">{children}</main>
+        <main className="app">
+          <Nav />
+          {children}
+        </main>
       </body>
     </html>
   );
