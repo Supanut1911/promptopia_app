@@ -39,7 +39,7 @@ const Nav = () => {
             </Link>
             <button
               type="button"
-              onClick={() => signOut}
+              onClick={() => signOut()}
               className="outline_btn"
             >
               Sign Out
@@ -47,9 +47,9 @@ const Nav = () => {
             <Link href="/profile">
               <Image
                 alt="profile"
-                src="/assets/images/profile2.svg"
-                width={50}
-                height={50}
+                src={session?.user.image ?? ""}
+                width={30}
+                height={30}
                 className="rounded-full"
               />
             </Link>
@@ -76,9 +76,9 @@ const Nav = () => {
           <div className="flex">
             <Image
               alt="profile_logo"
-              src="/assets/images/profile2.svg"
-              width={50}
-              height={50}
+              src={session?.user.image ?? ""}
+              width={30}
+              height={30}
               onClick={() => {
                 setToggleDropdown((prev) => !prev);
               }}
