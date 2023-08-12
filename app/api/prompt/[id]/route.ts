@@ -20,5 +20,36 @@ export const GET = async (
 };
 
 //PATCH (update)
+export const PATCH = async (
+  req: NextRequest,
+  { params }: { params: { id: string } }
+) => {
+  const { prompt, tag } = await req.json();
+  try {
+    await connectToDB();
+    const existPrompt = await Prompt.findById(params.id);
+    if (!existPrompt) return new Response("Prompt not found", { status: 404 });
+
+    existPrompt.prompt = prompt;
+    existPrompt.tag = tag;
+
+    await existPrompt.save();
+    return new Response(JSON.stringify(existPrompt), { status: 200 });
+  } catch (error) {
+    return new Response(`Update Prompt error:${error}`, { status: 400 });
+  }
+};
 
 //DELETE (delete)
+export const DELETE = async (
+  req: NextRequest,
+  { params }: { params: { id: string } }
+) => {
+  try {
+    await connectToDB();
+    const existPrompt = await Prompt.findByIdAndRemove(params.id);
+    return new Response("Prompt deleted successfully", { status: 200 });
+  } catch (error) {
+    return new Response(`Delete Prompt error:${error}`, { status: 400 });
+  }
+};
