@@ -9,8 +9,11 @@ import Profile from "@components/Profile";
 const MyProfile = () => {
   const { data: session } = useSession();
   const [posts, setPosts] = useState([]);
+  const router = useRouter();
 
-  const handleEdit = async () => {};
+  const handleEdit = async (post: any) => {
+    router.push(`/update-prompt?id=${post._id}`);
+  };
 
   const handleDelete = async () => {};
 
@@ -31,8 +34,8 @@ const MyProfile = () => {
       name="My"
       desc="Welcome to ur personalize profile page"
       data={posts}
-      handleEdit={() => handleEdit()}
-      handleDelete={() => handleDelete()}
+      handleEdit={handleEdit}
+      handleDelete={handleDelete}
     />
   );
 };

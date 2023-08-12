@@ -4,12 +4,13 @@ import { usePathname } from "next/navigation";
 import PromptCard from "./PromptCard";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
+import { log } from "console";
 interface PropType {
   name: string;
   desc: string;
   data: any;
-  handleEdit: () => {};
-  handleDelete: () => {};
+  handleEdit: any;
+  handleDelete: any;
 }
 
 const Profile = ({ name, desc, data, handleEdit, handleDelete }: PropType) => {
@@ -21,13 +22,15 @@ const Profile = ({ name, desc, data, handleEdit, handleDelete }: PropType) => {
       <p className="desc text-left">{desc}</p>
       <div className="mt-10 prompt_layout">
         {data.map((post: any) => {
+          console.log("post=>", post);
+
           return (
             <PromptCard
               key={post.creator._id}
               post={post}
               handleTagClick={() => {}}
-              handleEdit={() => handleEdit && handleEdit()}
-              handleDelete={() => handleDelete && handleDelete()}
+              handleEdit={() => handleEdit && handleEdit(post)}
+              handleDelete={() => handleDelete && handleDelete(post)}
             />
           );
         })}
