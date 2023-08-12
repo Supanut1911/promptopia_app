@@ -1,11 +1,9 @@
 import Prompt from "@models/prompt";
 import { connectToDB } from "@utils/database";
 
-interface PropType {
-  params: any;
-}
+import { NextRequest } from "next/server";
 
-export const GET = async ({ params }: PropType) => {
+export const GET = async (req, { params }: { params: { id: string } }) => {
   try {
     await connectToDB();
 
@@ -16,7 +14,7 @@ export const GET = async ({ params }: PropType) => {
     return new Response(JSON.stringify(response), { status: 200 });
   } catch (error) {
     return new Response(`Fail to fetch Prompt data error: ${error}`, {
-      status: 400,
+      status: 500,
     });
   }
 };
