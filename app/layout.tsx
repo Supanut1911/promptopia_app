@@ -4,13 +4,14 @@ import Nav from "@components/Nav";
 import Provider from "@components/Provider";
 
 export const metadata = {
-  title: "Speac Explor",
+  title: "Promptopia",
   description: "Discover & share ai prompt",
 };
 
 const Rootlayout = ({ children }: { children: ReactNode }) => {
   return (
     <html lang="en">
+      <link rel="icon" href="/assets/images/logo.svg" sizes="any" />
       <body>
         <Provider>
           <div className="main">
