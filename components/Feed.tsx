@@ -13,14 +13,17 @@ const PromptCardList = ({
 }) => {
   return (
     <div className="mt-16 prompt_layout">
-      {data &&
-        data.map((post: any) => {
+      {data.map((post: any) => {
+        return (
           <PromptCard
-            key={post._id}
+            key={post.creator._id}
             post={post}
             handleTagClick={handleTagClick}
-          />;
-        })}
+            handleDelete={() => {}}
+            handleEdit={() => {}}
+          />
+        );
+      })}
     </div>
   );
 };
