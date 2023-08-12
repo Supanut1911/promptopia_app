@@ -1,7 +1,7 @@
 import Prompt from "@models/prompt";
 import { connectToDB } from "@utils/database";
-
 import { NextRequest } from "next/server";
+//GET (read)
 
 export const GET = async (
   req: NextRequest,
@@ -9,15 +9,16 @@ export const GET = async (
 ) => {
   try {
     await connectToDB();
-
-    const response = await Prompt.find({
-      creator: params.id,
-    }).populate("creator");
-
-    return new Response(JSON.stringify(response), { status: 200 });
+    const prompt = await Prompt.findById(params.id).populate("creator");
+    if (!prompt) return new Response("Prompt not found", { status: 404 });
+    return new Response(JSON.stringify(prompt), { status: 200 });
   } catch (error) {
     return new Response(`Fail to fetch Prompt data error: ${error}`, {
-      status: 500,
+      status: 400,
     });
   }
 };
+
+//PATCH (update)
+
+//DELETE (delete)
