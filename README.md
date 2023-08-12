@@ -1,3 +1,19 @@
+[ ] Implement Search
+(Hint) => implement on Feed_component add more search_state (searchText, searchTimeout, searchResult)
+
+- Search by prompt
+- Search by tag
+- Search by username
+
+[ ] Implement Click on tag
+: bring tag to search bar and display post filter by tag
+
+[ ] Implement View other profiles
+: page => {domain}/profile/[{profile_id}]?name={profile_name}
+(hint) => implement on view profile dynamic id page
+
+---
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
