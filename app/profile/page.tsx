@@ -16,12 +16,17 @@ const MyProfile = () => {
 
   useEffect(() => {
     const fetchPosts = async () => {
-      const response = await fetch(`/api/users/:${session?.user.id}/posts`);
+      const response = await fetch(`/api/users/${session?.user.id}/posts`);
+      console.log("response=>", response);
       const data = await response.json();
       setPosts(data);
     };
 
-    if (session?.user.id) fetchPosts();
+    if (session?.user.id) {
+      console.log("have session");
+
+      fetchPosts();
+    }
   }, []);
 
   return (
