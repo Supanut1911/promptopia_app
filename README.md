@@ -1,11 +1,11 @@
-[ ] Implement Search
+[/] Implement Search
 (Hint) => implement on Feed_component add more search_state (searchText, searchTimeout, searchResult)
 
 - Search by prompt
 - Search by tag
 - Search by username
 
-[ ] Implement Click on tag
+[/] Implement Click on tag
 : bring tag to search bar and display post filter by tag
 
 [ ] Implement View other profiles
